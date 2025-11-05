@@ -1,0 +1,35 @@
+utils::globalVariables(c(
+  # Variable names used in dplyr/tidyr pipelines
+  "N1s",
+  "N2s",
+  "s",
+  "data.all",
+  "Go.prob",
+  "Test",
+  "Power",
+  "Power.2",
+  "Power.3",
+  "Power.Total",
+  "ESS",
+  "sample.size",
+  ".env",
+  "Go.s",
+  "hat.delta.1",
+  "x11",
+  "x21",
+  "x1s",
+  "x2s",
+  "x1s.ast",
+  "x2s.ast",
+  "min.x1s",
+  "max.x1s",
+  "min.x2s",
+  "max.x2s",
+  "min.x1s.ast",
+  "max.x1s.ast",
+  "min.x2s.ast",
+  "max.x2s.ast",
+
+  # Special symbols
+  "."
+))

@@ -44,6 +44,7 @@
 #'   }
 #'
 #' @importFrom dplyr select group_by reframe
+#' @importFrom magrittr %>%
 #'
 #' @export
 #'

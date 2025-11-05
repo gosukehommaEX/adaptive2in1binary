@@ -30,7 +30,9 @@ Imports:
     tidyr,
     purrr,
     fpCompare,
-    stats
+    stats,
+    magrittr,
+    tidyselect
 Suggests:
     ggplot2,
     patchwork

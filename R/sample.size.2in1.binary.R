@@ -68,9 +68,11 @@
 #'     \item \code{Power.Total}: Total power of tests (sum of Power.2 and Power.3)
 #'   }
 #'
-#' @importFrom dplyr tibble group_by reframe mutate ungroup select filter rename left_join bind_rows pull
+#' @importFrom dplyr tibble group_by reframe mutate ungroup select filter rename left_join bind_rows pull group_by_all slice across
 #' @importFrom tidyr unnest
 #' @importFrom fpCompare %<<%
+#' @importFrom magrittr %>%
+#' @importFrom tidyselect contains
 #'
 #' @export
 #'

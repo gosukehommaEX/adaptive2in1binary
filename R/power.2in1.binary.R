@@ -60,11 +60,13 @@
 #'     \item \code{ESS}: Expected sample size
 #'   }
 #'
-#' @importFrom dplyr tibble group_by mutate reframe ungroup filter select bind_cols rename
-#' @importFrom tidyr unnest
+#' @importFrom dplyr tibble group_by mutate reframe ungroup filter select bind_cols rename across arrange if_any everything if_else cross_join join_by left_join inner_join n
+#' @importFrom tidyr unnest pivot_longer pivot_wider
 #' @importFrom purrr map imap
-#' @importFrom fpCompare %!=%  %<=%
+#' @importFrom fpCompare %!=%  %<=% %==% %<<%
 #' @importFrom stats dbinom
+#' @importFrom magrittr %>%
+#' @importFrom tidyselect contains
 #'
 #' @export
 #'
@@ -146,7 +148,7 @@ power.2in1.binary <- function(p1, p2, N11, N21, N12, N22, N13, N23, cutpoint, al
             setNames(test.name) %>%
             imap(~ rename(.x, '{.y}' := test.result))
         ) %>%
-          filter_all(any_vars(!is.na(.))) %>%
+          filter(if_any(everything(), ~ !is.na(.))) %>%
           mutate(
             x1s.ast = do.call(pmax, c(select(., contains('x1')), na.rm = TRUE)),
             x2s.ast = do.call(pmax, c(select(., contains('x2')), na.rm = TRUE))
