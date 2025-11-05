@@ -163,11 +163,6 @@ Homma, G. and Yoshida, T. (2025). A 2-in-1 adaptive design for binary endpoints.
 Statistics in Medicine (under review).
 ```
 
-## Contact
-
-- Gosuke Homma: gosuke.homma@astellas.com
-- Takuma Yoshida: yoshida@sci.kagoshima-u.ac.jp
-
 ## License
 
 MIT License - see [LICENSE.md](LICENSE.md) file for details
