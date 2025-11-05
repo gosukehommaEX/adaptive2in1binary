@@ -1,3 +1,10 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$
+^examples$
+^.*\.tex$
+^.*\.pdf$
+^.*\.bib$
+^Response_to_editor\.pdf$
+^decision_letter\.txt$
+^README\.Rmd$

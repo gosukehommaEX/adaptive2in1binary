@@ -1,13 +1,40 @@
 Package: adaptive2in1binary
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Analytical Evaluation of 2-in-1 Adaptive Design for Binary Endpoints
 Version: 1.0.0
-Authors@R: person("Gosuke", "Homma", email = "my.name.is.gosuke@gmail.com", 
-                  role = c("aut", "cre"))
-Description: More about what it does (maybe more than one line).
-    Continuation lines should be indented.
+Authors@R: c(
+    person("Gosuke", "Homma", 
+           email = "gosuke.homma@astellas.com", 
+           role = c("aut", "cre"),
+           comment = c(ORCID = "", affiliation = "Astellas Pharma Inc.")),
+    person("Takuma", "Yoshida", 
+           email = "yoshida@sci.kagoshima-u.ac.jp", 
+           role = "aut",
+           comment = c(ORCID = "", affiliation = "Kagoshima University"))
+    )
+Description: Provides functions to analytically evaluate type I error rate and 
+    power for the 2-in-1 adaptive design with binary endpoints. The 2-in-1 design
+    allows a trial to maintain a small trial or expand to a large trial adaptively
+    based on interim analysis decisions. This package implements exact analytical 
+    calculations without Monte Carlo simulations, applicable to various statistical
+    tests including chi-square test, Fisher's exact test, and Boschloo's exact 
+    unconditional test. This package accompanies the paper "A 2-in-1 adaptive design 
+    for binary endpoints" by Homma and Yoshida (Statistics in Medicine, under review).
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Depends: 
+    R (>= 4.0.0)
+Imports:
+    dplyr,
+    tidyr,
+    purrr,
+    fpCompare,
+    stats
+Suggests:
+    ggplot2,
+    patchwork
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
+URL: https://github.com/gosukehommaEX/adaptive2in1binary
+BugReports: https://github.com/gosukehommaEX/adaptive2in1binary/issues
