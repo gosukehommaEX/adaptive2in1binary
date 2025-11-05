@@ -44,7 +44,8 @@
 #' @param cutpoint A cutpoint of the risk difference for the interim decision.
 #'   Can be NA (to return results for all possible cutpoints) or a single value
 #'   within -1 < cutpoint <= 1.
-#' @param alpha One-sided level of significance (e.g., 0.025).
+#' @param alpha2 One-sided level of significance at satge 2 (e.g., 0.025).
+#' @param alpha3 One-sided level of significance at satge 3 (e.g., 0.025).
 #'
 #' @return A tibble with the following columns:
 #'   \itemize{
@@ -74,13 +75,13 @@
 #' # Example 1: Single cutpoint
 #' power.2in1.binary(
 #'   p1 = 0.4, p2 = 0.2, N11 = 40, N21 = 20, N12 = 50, N22 = 25,
-#'   N13 = 100, N23 = 50, cutpoint = 0.2, alpha = 0.025
+#'   N13 = 100, N23 = 50, cutpoint = 0.2, alpha2 = 0.025, alpha3 = 0.025
 #' )
 #'
 #' # Example 2: All possible cutpoints
 #' power.2in1.binary(
 #'   p1 = 0.4, p2 = 0.2, N11 = 40, N21 = 20, N12 = 50, N22 = 25,
-#'   N13 = 100, N23 = 50, cutpoint = NA, alpha = 0.025
+#'   N13 = 100, N23 = 50, cutpoint = NA, alpha2 = 0.025, alpha3 = 0.025
 #' )
 #'
 #' # Example 3: Multiple (p1, p2) combinations
@@ -88,9 +89,9 @@
 #' p2_vec <- c(0.2, 0.2, 0.2)
 #' power.2in1.binary(
 #'   p1 = p1_vec, p2 = p2_vec, N11 = 30, N21 = 30, N12 = 40, N22 = 40,
-#'   N13 = 80, N23 = 80, cutpoint = 0.2, alpha = 0.025
+#'   N13 = 80, N23 = 80, cutpoint = 0.2, alpha2 = 0.025, alpha3 = 0.025
 #' )
-power.2in1.binary <- function(p1, p2, N11, N21, N12, N22, N13, N23, cutpoint, alpha) {
+power.2in1.binary <- function(p1, p2, N11, N21, N12, N22, N13, N23, cutpoint, alpha2, alpha3) {
 
   # Check that p1 and p2 are the same length
   if(length(p1) %!=% length(p2)) stop('p1 and p2 should be the same length')
@@ -121,7 +122,8 @@ power.2in1.binary <- function(p1, p2, N11, N21, N12, N22, N13, N23, cutpoint, al
     N2s = c(N22, N23),
     # Total sample sizes for stage s(=2,3) analyses
     N1s.ast = N11 + N1s,
-    N2s.ast = N21 + N2s
+    N2s.ast = N21 + N2s,
+    alpha = c(alpha2, alpha3)
   ) %>%
     group_by(s) %>%
     mutate(

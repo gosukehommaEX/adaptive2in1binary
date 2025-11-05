@@ -40,7 +40,8 @@
 #'   Note: To control type I error rate, pi2 should be less than or equal to 1 - pi1.
 #' @param cutpoint A cutpoint of the risk difference for the interim decision.
 #'   The value should be within -1 < cutpoint <= 1.
-#' @param alpha One-sided level of significance (e.g., 0.025).
+#' @param alpha2 One-sided level of significance at satge 2 (e.g., 0.025).
+#' @param alpha3 One-sided level of significance at satge 3 (e.g., 0.025).
 #' @param tar.power Target power (e.g., 0.8 or 0.9).
 #'
 #' @return A tibble with the following columns:
@@ -80,13 +81,13 @@
 #' # Example 1: Basic usage
 #' sample.size.2in1.binary(
 #'   p1 = 0.4, p2 = 0.2, r = 2, pi1 = 0.2, pi2 = 0.5,
-#'   cutpoint = 0.2, alpha = 0.025, tar.power = 0.8
+#'   cutpoint = 0.2, alpha2 = 0.025, alpha3 = 0.025, tar.power = 0.8
 #' )
 #'
 #' # Example 2: Balanced allocation
 #' sample.size.2in1.binary(
 #'   p1 = 0.6, p2 = 0.3, r = 1, pi1 = 0.3, pi2 = 0.3,
-#'   cutpoint = 0.3, alpha = 0.025, tar.power = 0.9
+#'   cutpoint = 0.3, alpha2 = 0.025, alpha3 = 0.025, tar.power = 0.9
 #' )
 #'
 #' # Example 3: Compare different cutpoints
@@ -94,7 +95,7 @@
 #' results <- lapply(cutpoints, function(c) {
 #'   sample.size.2in1.binary(
 #'     p1 = 0.5, p2 = 0.3, r = 1, pi1 = 0.2, pi2 = 0.3,
-#'     cutpoint = c, alpha = 0.025, tar.power = 0.8
+#'     cutpoint = c, alpha2 = 0.025, alpha3 = 0.025, tar.power = 0.8
 #'   )
 #' })
 #' do.call(rbind, results)
@@ -102,9 +103,9 @@
 #' # Example 4: High power requirement
 #' sample.size.2in1.binary(
 #'   p1 = 0.7, p2 = 0.3, r = 1, pi1 = 0.3, pi2 = 0.3,
-#'   cutpoint = 0.5, alpha = 0.025, tar.power = 0.9
+#'   cutpoint = 0.5, alpha2 = 0.025, alpha3 = 0.025, tar.power = 0.9
 #' )
-sample.size.2in1.binary <- function(p1, p2, r, pi1, pi2, cutpoint, alpha, tar.power) {
+sample.size.2in1.binary <- function(p1, p2, r, pi1, pi2, cutpoint, alpha2, alpha3, tar.power) {
   # Step 0: sample size calculation for a traditional design of a phase 3 trial ensuring power = tar.power
   info.trad <- tibble(
     p1 = p1,
@@ -120,7 +121,7 @@ sample.size.2in1.binary <- function(p1, p2, r, pi1, pi2, cutpoint, alpha, tar.po
     group_by(p1, p2, Test) %>%
     mutate(
       sample.size = list(
-        sample.size.binary(p1, p2, r, alpha, tar.power, Test)
+        sample.size.binary(p1, p2, r, min(c(alpha2, alpha3)), tar.power, Test)
       )
     ) %>%
     ungroup() %>%
@@ -139,7 +140,7 @@ sample.size.2in1.binary <- function(p1, p2, r, pi1, pi2, cutpoint, alpha, tar.po
   N23 <- N2 - N21
   N13 <- N1 - N11
   # Step 1: power calculation for a 2-in-1 adaptive phase 2/3 design given initial sample sizes
-  info.2in1 <- power.2in1.binary(p1, p2, N11, N21, N12, N22, N13, N23, cutpoint, alpha) %>%
+  info.2in1 <- power.2in1.binary(p1, p2, N11, N21, N12, N22, N13, N23, cutpoint, alpha2, alpha3) %>%
     mutate(
       N1 = N1,
       N2 = N2,
@@ -161,7 +162,7 @@ sample.size.2in1.binary <- function(p1, p2, r, pi1, pi2, cutpoint, alpha, tar.po
     N13 <- N1 - N11
     info.2in1 <- info.2in1 %>%
       bind_rows(
-        power.2in1.binary(p1, p2, N11, N21, N12, N22, N13, N23, cutpoint, alpha) %>%
+        power.2in1.binary(p1, p2, N11, N21, N12, N22, N13, N23, cutpoint, alpha2, alpha3) %>%
           mutate(
             N1 = N1,
             N2 = N2,
@@ -184,6 +185,8 @@ sample.size.2in1.binary <- function(p1, p2, r, pi1, pi2, cutpoint, alpha, tar.po
     mutate(
       pi1 = pi1,
       pi2 = pi2,
+      alpha2 = alpha2,
+      alpha3 = alpha3,
       .after = p2
     ) %>%
     rename(N1.2in1 = N1, N2.2in1 = N2, N.2in1 = N) %>%
@@ -194,7 +197,7 @@ sample.size.2in1.binary <- function(p1, p2, r, pi1, pi2, cutpoint, alpha, tar.po
       by = c('p1', 'p2', 'Test')
     ) %>%
     select(
-      p1, p2, r, pi1, pi2, alpha, tar.power, Test, cutpoint, contains('trad'), contains('2in1'), ESS, Go.prob, contains('Power.')
+      p1, p2, r, pi1, pi2, alpha2, alpha3, tar.power, Test, cutpoint, contains('trad'), contains('2in1'), ESS, Go.prob, contains('Power.')
     )
 
   # Return result

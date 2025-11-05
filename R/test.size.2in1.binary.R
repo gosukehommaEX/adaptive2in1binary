@@ -33,7 +33,8 @@
 #' @param cutpoint A cutpoint of the risk difference for the interim decision.
 #'   Can be NA (to return results for all possible cutpoints) or a single value
 #'   within -1 < cutpoint <= 1.
-#' @param alpha One-sided level of significance (e.g., 0.025).
+#' @param alpha2 One-sided level of significance at satge 2 (e.g., 0.025).
+#' @param alpha3 One-sided level of significance at satge 3 (e.g., 0.025).
 #'
 #' @return A tibble with the following columns:
 #'   \itemize{
@@ -53,20 +54,20 @@
 #' # Example 1: All possible cutpoints
 #' test.size.2in1.binary(
 #'   N11 = 40, N21 = 20, N12 = 50, N22 = 25, N13 = 100, N23 = 50,
-#'   cutpoint = NA, alpha = 0.025
+#'   cutpoint = NA, alpha2 = 0.025, alpha3 = 0.025
 #' )
 #'
 #' # Example 2: Specific cutpoint
 #' test.size.2in1.binary(
 #'   N11 = 40, N21 = 20, N12 = 50, N22 = 25, N13 = 100, N23 = 50,
-#'   cutpoint = 0.2, alpha = 0.025
+#'   cutpoint = 0.2, alpha2 = 0.025, alpha3 = 0.025
 #' )
 #'
 #' # Example 3: Verify type I error rate control
 #' # For a balanced design with equal sample sizes
 #' test_size_result <- test.size.2in1.binary(
 #'   N11 = 30, N21 = 30, N12 = 40, N22 = 40, N13 = 80, N23 = 80,
-#'   cutpoint = 0.15, alpha = 0.025
+#'   cutpoint = 0.15, alpha2 = 0.025, alpha3 = 0.025
 #' )
 #' print(test_size_result)
 #'
@@ -78,11 +79,11 @@
 #' } else {
 #'   cat("Type I error rate exceeds alpha = 0.025\n")
 #' }
-test.size.2in1.binary <- function(N11, N21, N12, N22, N13, N23, cutpoint, alpha) {
+test.size.2in1.binary <- function(N11, N21, N12, N22, N13, N23, cutpoint, alpha2, alpha3) {
 
   # Calculate test size
   test.size <- power.2in1.binary(
-    seq(0, 1, l = 100), seq(0, 1, l = 100), N11, N21, N12, N22, N13, N23, cutpoint, alpha
+    seq(0, 1, l = 100), seq(0, 1, l = 100), N11, N21, N12, N22, N13, N23, cutpoint, alpha2, alpha3
   ) %>%
     select(cutpoint, Test, Power.Total) %>%
     group_by(cutpoint, Test) %>%
