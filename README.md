@@ -25,7 +25,10 @@ The 2-in-1 adaptive design allows a clinical trial to maintain a small trial or 
 You can install the development version from GitHub:
 
 ``` r
+# Install pak if you don't have it
 # install.packages("pak")
+
+# Install the package
 pak::pak("gosukehommaEX/adaptive2in1binary")
 ```
 
@@ -86,16 +89,53 @@ print(test_size)
 
 ## Reproducing Manuscript Results
 
-To reproduce the figures and tables from the manuscript:
+### Method 1: Using the installed package (Recommended)
+
+After installing the package, you can reproduce the manuscript results by cloning the repository and running the example scripts:
 
 ```r
-# Navigate to the examples folder and run individual scripts
-source("examples/fig2.R")  # Generates Figure 2
-source("examples/table1.R")  # Generates Table 1
-# etc.
+# 1. Install the package
+pak::pak("gosukehommaEX/adaptive2in1binary")
+
+# 2. Install additional packages required for visualization
+install.packages(c("ggplot2", "patchwork", "ggh4x", "scales", "kableExtra"))
+
+# 3. Clone the repository to your local machine
+# In terminal: git clone https://github.com/gosukehommaEX/adaptive2in1binary.git
+
+# 4. Set working directory to the examples folder
+setwd("path/to/adaptive2in1binary/examples")
+
+# 5. Run individual scripts
+source("fig2.R")    # Generates Figure 2 (fig2.eps)
+source("fig3.R")    # Generates Figure 3 (fig3.eps)
+source("fig4.R")    # Generates Figure 4 (fig4.eps)
+source("fig5.R")    # Generates Figure 5 (fig5.eps)
+source("fig6.R")    # Generates Figure 6 (fig6.eps)
+source("table1.R")  # Generates Table 1 (table1.tex)
+source("table2.R")  # Generates Table 2 (table2.tex)
 ```
 
-Note: The example scripts require `ggplot2` and `patchwork` packages for visualization.
+### Method 2: Direct execution from GitHub
+
+Alternatively, you can download the repository as a ZIP file from GitHub, extract it, and run the scripts as described above.
+
+### Required Packages for Examples
+
+The example scripts require the following additional packages:
+- **For figures**: `ggplot2`, `patchwork`, `ggh4x`, `scales`
+- **For tables**: `kableExtra`
+
+Install them all at once:
+```r
+install.packages(c("ggplot2", "patchwork", "ggh4x", "scales", "kableExtra"))
+```
+
+### Output Files
+
+Running the example scripts will generate:
+- **Figures**: `fig2.eps`, `fig3.eps`, `fig4.eps`, `fig5.eps`, `fig6.eps` (800 dpi EPS format)
+- **Tables**: `table1.tex`, `table2.tex` (LaTeX format)
 
 ## Citation
 
