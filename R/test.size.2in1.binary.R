@@ -13,7 +13,7 @@
 #' While the point null hypothesis assumes H0: p1 = p2 = p for a specific value
 #' of p, the true response probability might differ from p. Therefore, the exact
 #' type I error rate must be evaluated under the composite null hypothesis
-#' H0: p1 = p2 by searching over all possible values of theta in [0, 1].
+#' H0: p1 = p2 by searching over all possible values of theta in \code{[0, 1]}.
 #'
 #' The test size is calculated by:
 #' \enumerate{
