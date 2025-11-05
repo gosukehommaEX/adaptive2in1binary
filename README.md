@@ -100,11 +100,18 @@ pak::pak("gosukehommaEX/adaptive2in1binary")
 # 2. Install additional packages required for examples
 install.packages(c("dplyr", "tidyr", "ggplot2", "patchwork", "ggh4x", "scales", "kableExtra"))
 
-# 3. Clone the repository to your local machine
-# In terminal: git clone https://github.com/gosukehommaEX/adaptive2in1binary.git
+# 3. Clone or download the repository
+# Option A: Using Git (in terminal/command prompt)
+#   git clone https://github.com/gosukehommaEX/adaptive2in1binary.git
+# Option B: Download ZIP file
+#   Visit: https://github.com/gosukehommaEX/adaptive2in1binary
+#   Click "Code" → "Download ZIP" → Extract the ZIP file
 
-# 4. Set working directory to the examples folder
+# 4. Set working directory to the examples folder (IMPORTANT!)
+# Replace with your actual path
 setwd("path/to/adaptive2in1binary/examples")
+# Example on Windows: setwd("C:/Users/YourName/Downloads/adaptive2in1binary/examples")
+# Example on Mac/Linux: setwd("~/Downloads/adaptive2in1binary/examples")
 
 # 5. Load required packages (important!)
 library(dplyr)
@@ -121,6 +128,8 @@ source("table1.R")  # Generates Table 1 (table1.tex)
 source("table2.R")  # Generates Table 2 (table2.tex)
 ```
 
+**Note**: The scripts must be run from the `examples/` folder because they reference each other and generate output files in the current directory.
+
 ### Method 2: Direct execution from GitHub
 
 Alternatively, you can download the repository as a ZIP file from GitHub, extract it, and run the scripts as described above.
@@ -128,13 +137,16 @@ Alternatively, you can download the repository as a ZIP file from GitHub, extrac
 ### Required Packages for Examples
 
 The example scripts require the following additional packages:
+- **For data manipulation**: `dplyr`, `tidyr` (required for all examples)
 - **For figures**: `ggplot2`, `patchwork`, `ggh4x`, `scales`
 - **For tables**: `kableExtra`
 
 Install them all at once:
 ```r
-install.packages(c("ggplot2", "patchwork", "ggh4x", "scales", "kableExtra"))
+install.packages(c("dplyr", "tidyr", "ggplot2", "patchwork", "ggh4x", "scales", "kableExtra"))
 ```
+
+**Important Note**: Although `dplyr` and `tidyr` are listed as dependencies of `adaptive2in1binary`, you must load them explicitly when running the example scripts because the scripts use these packages' functions directly (e.g., `%>%`, `tibble()`, `group_by()`).
 
 ### Output Files
 
