@@ -33,8 +33,8 @@
 ##   Required packages: kableExtra
 ########################################################################################################################
 library(kableExtra)
+library(adaptive2in1binary)
 options(knitr.table.format = 'latex')
-source('sample.size.2in1.binary.R')
 p1 = c(0.6, 0.6, 0.6)
 p2 = c(0.2, 0.3, 0.4)
 r = c(1, 2)

@@ -38,8 +38,7 @@
 ########################################################################################################################
 library(ggplot2)
 library(patchwork)
-source('test.size.2in1.binary.R')
-source('power.2in1.binary.R')
+library(adaptive2in1binary)
 p1 = 0.6
 p2 = 0.45
 r = c(1, 2)

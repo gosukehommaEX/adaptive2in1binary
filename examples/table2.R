@@ -34,9 +34,8 @@
 ##   Required packages: kableExtra
 ########################################################################################################################
 library(kableExtra)
+library(adaptive2in1binary)
 options(knitr.table.format = 'latex')
-source('test.size.2in1.binary.R')
-source('power.2in1.binary.R')
 p1 = 0.35
 p2 = 0.05
 r = 1
