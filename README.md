@@ -97,8 +97,8 @@ After installing the package, you can reproduce the manuscript results by clonin
 # 1. Install the package
 pak::pak("gosukehommaEX/adaptive2in1binary")
 
-# 2. Install additional packages required for visualization
-install.packages(c("ggplot2", "patchwork", "ggh4x", "scales", "kableExtra"))
+# 2. Install additional packages required for examples
+install.packages(c("dplyr", "tidyr", "ggplot2", "patchwork", "ggh4x", "scales", "kableExtra"))
 
 # 3. Clone the repository to your local machine
 # In terminal: git clone https://github.com/gosukehommaEX/adaptive2in1binary.git
@@ -106,7 +106,12 @@ install.packages(c("ggplot2", "patchwork", "ggh4x", "scales", "kableExtra"))
 # 4. Set working directory to the examples folder
 setwd("path/to/adaptive2in1binary/examples")
 
-# 5. Run individual scripts
+# 5. Load required packages (important!)
+library(dplyr)
+library(tidyr)
+library(adaptive2in1binary)
+
+# 6. Run individual scripts
 source("fig2.R")    # Generates Figure 2 (fig2.eps)
 source("fig3.R")    # Generates Figure 3 (fig3.eps)
 source("fig4.R")    # Generates Figure 4 (fig4.eps)

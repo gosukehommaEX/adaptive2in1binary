@@ -36,6 +36,8 @@
 ##
 ##   This analysis addresses Reviewer 2, Comment 3 regarding the effect of sample size.
 ########################################################################################################################
+library(dplyr)
+library(tidyr)
 library(ggplot2)
 library(patchwork)
 library(adaptive2in1binary)

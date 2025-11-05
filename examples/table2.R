@@ -33,6 +33,8 @@
 ##
 ##   Required packages: kableExtra
 ########################################################################################################################
+library(dplyr)
+library(tidyr)
 library(kableExtra)
 library(adaptive2in1binary)
 options(knitr.table.format = 'latex')

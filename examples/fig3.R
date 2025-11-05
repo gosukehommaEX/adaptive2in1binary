@@ -33,6 +33,8 @@
 ##
 ##   Required packages: ggplot2, patchwork
 ########################################################################################################################
+library(dplyr)
+library(tidyr)
 library(ggplot2)
 library(patchwork)
 library(adaptive2in1binary)

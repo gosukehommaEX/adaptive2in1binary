@@ -33,6 +33,8 @@
 ##
 ##   Required packages: ggplot2, ggh4x, scales, patchwork
 ########################################################################################################################
+library(dplyr)
+library(tidyr)
 library(ggplot2)
 library(ggh4x)
 library(scales)
