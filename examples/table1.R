@@ -19,10 +19,6 @@
 ## Output:
 ##   - table1.tex: LaTeX table file
 ##
-## Reference:
-##   Homma G and Yoshida T (20XX). A 2-in-1 adaptive design for binary endpoints.
-##   Statistics in Medicine (under review).
-##
 ## Usage:
 ##   source("table1.R")
 ##

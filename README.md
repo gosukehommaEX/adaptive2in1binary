@@ -5,11 +5,7 @@
 
 ## Overview
 
-This repository contains R functions and reproducible code for the paper:
-
-**"A 2-in-1 adaptive design for binary endpoints"**  
-Gosuke Homma and Takuma Yoshida  
-*Statistics in Medicine* (under review)
+This repository contains R functions and reproducible code for analytical evaluation of the 2-in-1 adaptive design with binary endpoints.
 
 The 2-in-1 adaptive design allows a clinical trial to maintain a small trial or expand to a large trial adaptively based on decisions made at an interim analysis. This package provides functions to analytically evaluate the type I error rate and power for the 2-in-1 adaptive design with binary endpoints, without requiring Monte Carlo simulations.
 
@@ -18,7 +14,7 @@ The 2-in-1 adaptive design allows a clinical trial to maintain a small trial or 
 - **Exact analytical calculations**: Evaluate type I error rate and power without simulations
 - **Multiple statistical tests**: Support for chi-square test, Fisher's exact test, Fisher's exact test with mid-P correction, Z-pooled test, and Boschloo's exact unconditional test
 - **Sample size calculations**: Functions for determining required sample sizes
-- **Reproducible research**: All code used to generate figures and tables in the manuscript
+- **Reproducible research**: All code used to generate figures and tables
 
 ## Installation
 
@@ -41,7 +37,7 @@ adaptive2in1binary/
 │   ├── test.size.2in1.binary.R # Calculate type I error rate
 │   ├── sample.size.2in1.binary.R # Sample size calculations
 │   └── ...
-├── examples/                   # Scripts to reproduce manuscript results
+├── examples/                   # Scripts to reproduce results
 │   ├── fig2.R                  # Generate Figure 2
 │   ├── fig3.R                  # Generate Figure 3
 │   ├── fig4.R                  # Generate Figure 4
@@ -87,11 +83,9 @@ test_size <- test.size.2in1.binary(N11, N21, N12, N22, N13, N23,
 print(test_size)
 ```
 
-## Reproducing Manuscript Results
+## Reproducing Results
 
-### Method 1: Using the installed package (Recommended)
-
-After installing the package, you can reproduce the manuscript results by cloning the repository and running the example scripts:
+After installing the package, you can reproduce the results by cloning the repository and running the example scripts:
 
 ```r
 # 1. Install the package
@@ -130,10 +124,6 @@ source("table2.R")  # Generates Table 2 (table2.tex)
 
 **Note**: The scripts must be run from the `examples/` folder because they reference each other and generate output files in the current directory.
 
-### Method 2: Direct execution from GitHub
-
-Alternatively, you can download the repository as a ZIP file from GitHub, extract it, and run the scripts as described above.
-
 ### Required Packages for Examples
 
 The example scripts require the following additional packages:
@@ -159,8 +149,8 @@ Running the example scripts will generate:
 If you use this code in your research, please cite:
 
 ```
-Homma, G. and Yoshida, T. (2025). A 2-in-1 adaptive design for binary endpoints. 
-Statistics in Medicine (under review).
+Homma, G. and Yoshida, T. Analytical evaluation of the 2-in-1 adaptive design 
+for binary endpoints. (manuscript in preparation)
 ```
 
 ## License

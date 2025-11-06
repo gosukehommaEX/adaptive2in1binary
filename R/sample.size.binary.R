@@ -49,9 +49,6 @@
 #'
 #' @export
 #'
-#' @references
-#' Homma, G. and Yoshida, T. (20XX). A 2-in-1 adaptive design for binary endpoints.
-#'
 #' @examples
 #' # Example 1: Pearson chi-squared test
 #' sample.size.binary(p1 = 0.4, p2 = 0.2, r = 2, alpha = 0.025,

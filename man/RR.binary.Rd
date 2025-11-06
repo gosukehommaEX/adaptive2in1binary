@@ -60,6 +60,3 @@ RR_fisher <- RR.binary(N1 = 30, N2 = 30, alpha = 0.025, Test = "Fisher")
 # Example 3: Pearson chi-squared test
 RR_chisq <- RR.binary(N1 = 40, N2 = 20, alpha = 0.025, Test = "Chisq")
 }
-\references{
-Homma, G. and Yoshida, T. (20XX). A 2-in-1 adaptive design for binary endpoints.
-}

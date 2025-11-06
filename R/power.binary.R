@@ -41,9 +41,6 @@
 #'
 #' @export
 #'
-#' @references
-#' Homma, G. and Yoshida, T. (20XX). A 2-in-1 adaptive design for binary endpoints.
-#'
 #' @examples
 #' # Example 1: Single power calculation
 #' p1 <- 0.5

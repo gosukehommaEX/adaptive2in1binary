@@ -111,6 +111,3 @@ power.2in1.binary(
   N13 = 80, N23 = 80, cutpoint = 0.2, alpha2 = 0.025, alpha3 = 0.025
 )
 }
-\references{
-Homma, G. and Yoshida, T. (20XX). A 2-in-1 adaptive design for binary endpoints.
-}

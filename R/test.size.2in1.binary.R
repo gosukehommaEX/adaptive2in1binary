@@ -48,9 +48,6 @@
 #'
 #' @export
 #'
-#' @references
-#' Homma, G. and Yoshida, T. (20XX). A 2-in-1 adaptive design for binary endpoints.
-#'
 #' @examples
 #' # Example 1: All possible cutpoints
 #' test.size.2in1.binary(

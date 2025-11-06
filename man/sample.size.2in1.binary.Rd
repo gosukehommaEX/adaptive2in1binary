@@ -123,6 +123,3 @@ sample.size.2in1.binary(
   cutpoint = 0.5, alpha2 = 0.025, alpha3 = 0.025, tar.power = 0.9
 )
 }
-\references{
-Homma, G. and Yoshida, T. (20XX). A 2-in-1 adaptive design for binary endpoints.
-}

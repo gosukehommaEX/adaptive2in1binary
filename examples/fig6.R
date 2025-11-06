@@ -20,10 +20,6 @@
 ## Output:
 ##   - fig6.eps: Publication-quality figure (800 dpi)
 ##
-## Reference:
-##   Homma G and Yoshida T (20XX). A 2-in-1 adaptive design for binary endpoints.
-##   Statistics in Medicine (under review).
-##
 ## Usage:
 ##   source("fig6.R")
 ##

@@ -4,7 +4,7 @@ Title: Analytical Evaluation of 2-in-1 Adaptive Design for Binary Endpoints
 Version: 1.0.0
 Authors@R: c(
     person("Gosuke", "Homma", 
-           email = "gosuke.homma@astellas.com", 
+           email = "my.name.is.gosuke@gmail.com", 
            role = c("aut", "cre"),
            comment = c(ORCID = "", affiliation = "Astellas Pharma Inc.")),
     person("Takuma", "Yoshida", 
@@ -18,8 +18,7 @@ Description: Provides functions to analytically evaluate type I error rate and
     based on interim analysis decisions. This package implements exact analytical 
     calculations without Monte Carlo simulations, applicable to various statistical
     tests including chi-square test, Fisher's exact test, and Boschloo's exact 
-    unconditional test. This package accompanies the paper "A 2-in-1 adaptive design 
-    for binary endpoints" by Homma and Yoshida (Statistics in Medicine, under review).
+    unconditional test.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

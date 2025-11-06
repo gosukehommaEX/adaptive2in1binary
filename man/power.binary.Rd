@@ -78,6 +78,3 @@ for (test in tests) {
   cat(sprintf("\%s: Power = \%.4f\n", test, pwr))
 }
 }
-\references{
-Homma, G. and Yoshida, T. (20XX). A 2-in-1 adaptive design for binary endpoints.
-}

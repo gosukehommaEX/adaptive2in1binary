@@ -40,9 +40,6 @@
 #'
 #' @export
 #'
-#' @references
-#' Homma, G. and Yoshida, T. (20XX). A 2-in-1 adaptive design for binary endpoints.
-#'
 #' @examples
 #' # Example 1: Boschloo exact unconditional test
 #' N1 <- 20
